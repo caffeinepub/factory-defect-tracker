@@ -1,0 +1,11 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining routes for submit defect page (/ and /submit) and view reports page (/reports), wrapped in a Layout component.",
+  "frontend/src/components/Layout.tsx": "Application layout component providing consistent header with navigation, main content area, and footer with branding and caffeine.ai attribution.",
+  "frontend/src/pages/SubmitDefectPage.tsx": "Page component for defect submission that renders the DefectReportForm with instructions and quality control guidelines.",
+  "frontend/src/pages/ViewDefectsPage.tsx": "Page component for viewing all defect reports that renders the DefectReportList with filtering capabilities.",
+  "frontend/src/components/DefectReportForm.tsx": "Form component for submitting defect reports with fields for product name, department selection, employee ID, description, and optional photo upload with preview and progress tracking using ExternalBlob.",
+  "frontend/src/components/DefectReportList.tsx": "List component displaying all defect reports in a table format with department filtering, photo thumbnails, and full-size image modal dialog.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend integration including useGetAllReports, useGetReportsByDepartment, and useCreateDefectReport with automatic cache invalidation.",
+  "frontend/src/index.css": "Global styles with OKLCH color system defining a manufacturing-appropriate theme using warm neutrals, charcoal gray, and safety orange accent colors for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom fonts (Inter, JetBrains Mono), manufacturing color palette, and enhanced shadows for professional industrial aesthetic."
+}

@@ -1,0 +1,89 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-frontend-form-where-employees-can-submit-defect-reports-by-entering-product-name-selecting-department-from-a-dropdown-cutting-machining-assembly-painting-embossing-entering-defect-description-and-optionally-uploading-a-photo",
+      "featureTitle": "Create a frontend form where employees can submit defect reports by entering product name, selecting department from a dropdown (cutting, machining, assembly, painting, embossing), entering defect description, and optionally uploading a photo",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DefectReportForm.tsx",
+        "frontend/src/pages/SubmitDefectPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-a-list-view-of-all-submitted-defect-reports-showing-product-name-department-description-timestamp-and-thumbnail-of-photo-if-present-with-ability-to-filter-by-department",
+      "featureTitle": "Display a list view of all submitted defect reports showing product name, department, description, timestamp, and thumbnail of photo if present, with ability to filter by department",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DefectReportList.tsx",
+        "frontend/src/pages/ViewDefectsPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-handle-photo-uploads-by-storing-image-data-as-static-assets-in-frontend-public-assets-uploads-and-referencing-the-filename-in-the-defect-report-record",
+      "featureTitle": "Handle photo uploads by storing image data as static assets in frontend/public/assets/uploads and referencing the filename in the defect report record",
+      "files": [
+        "frontend/src/components/DefectReportForm.tsx",
+        "frontend/src/components/DefectReportList.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-clean-professional-visual-theme-for-a-manufacturing-environment-with-a-cohesive-color-palette-avoiding-blue-and-purple-clear-typography-for-readability-in-factory-settings-and-intuitive-layout-emphasizing-quick-report-submission-and-easy-defect-tracking",
+      "featureTitle": "Design a clean, professional visual theme for a manufacturing environment with a cohesive color palette (avoiding blue and purple), clear typography for readability in factory settings, and intuitive layout emphasizing quick report submission and easy defect tracking",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

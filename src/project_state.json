@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Manufacturing quality control app where employees can report defects (text/photo) on products as they move through departments (cutting, machining, assembly, painting, embossing). Supports multiple products and departments.",
+  "architectural_notes": [
+    "Multi-department workflow: cutting → machining → assembly → painting → embossing",
+    "Image upload capability for defect documentation"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-frontend-form-where-employees-can-submit-defect-reports-by-entering-product-name-selecting-department-from-a-dropdown-cutting-machining-assembly-painting-embossing-entering-defect-description-and-optionally-uploading-a-photo",
+      "title": "Create a frontend form where employees can submit defect reports by entering product name, selecting department from a dropdown (cutting, machining, assembly, painting, embossing), entering defect description, and optionally uploading a photo",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-list-view-of-all-submitted-defect-reports-showing-product-name-department-description-timestamp-and-thumbnail-of-photo-if-present-with-ability-to-filter-by-department",
+      "title": "Display a list view of all submitted defect reports showing product name, department, description, timestamp, and thumbnail of photo if present, with ability to filter by department",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-handle-photo-uploads-by-storing-image-data-as-static-assets-in-frontend-public-assets-uploads-and-referencing-the-filename-in-the-defect-report-record",
+      "title": "Handle photo uploads by storing image data as static assets in frontend/public/assets/uploads and referencing the filename in the defect report record",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-clean-professional-visual-theme-for-a-manufacturing-environment-with-a-cohesive-color-palette-avoiding-blue-and-purple-clear-typography-for-readability-in-factory-settings-and-intuitive-layout-emphasizing-quick-report-submission-and-easy-defect-tracking",
+      "title": "Design a clean, professional visual theme for a manufacturing environment with a cohesive color palette (avoiding blue and purple), clear typography for readability in factory settings, and intuitive layout emphasizing quick report submission and easy defect tracking",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Employee defect reporting with text and photo upload",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Support for multiple departments (cutting, machining, assembly, painting, embossing)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Track defects across multiple products",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a backend data model to store defect reports with fields: unique ID, product name, department (cutting/machining/assembly/painting/embossing), defect description text, optional photo reference, employee identifier, and timestamp",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement backend endpoints to create new defect reports, retrieve all reports, and filter reports by department or product",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Factory Defect Tracker",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,132 @@
+{
+  "kind": "build_request",
+  "title": "Create manufacturing defect reporting application",
+  "projectName": "Factory Defect Tracker",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model to store defect reports with fields: unique ID, product name, department (cutting/machining/assembly/painting/embossing), defect description text, optional photo reference, employee identifier, and timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "vsak zaposleni napiše ali slika če opazi napako na elementih",
+          "imamo veliko število različnih izdelkov in več oddelkov"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Defect report records include all required fields",
+        "Department field supports exactly five departments: cutting, machining, assembly, painting, embossing",
+        "Timestamp is automatically captured on report creation"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend endpoints to create new defect reports, retrieve all reports, and filter reports by department or product",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Endpoint exists to submit a new defect report",
+        "Endpoint exists to fetch all defect reports",
+        "Filtering by department returns only matching reports",
+        "Filtering by product name returns only matching reports"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a frontend form where employees can submit defect reports by entering product name, selecting department from a dropdown (cutting, machining, assembly, painting, embossing), entering defect description, and optionally uploading a photo",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "vsak zaposleni napiše ali slika če opazi napako",
+          "prikrojevalnica oddelek, strojna oddelek, montažni oddelek, lakirnica oddelek in emblirnica"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes product name input field",
+        "Dropdown lists all five departments",
+        "Text area accepts defect description",
+        "Photo upload field is present and optional",
+        "Form validates required fields before submission",
+        "Successful submission clears the form"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Display a list view of all submitted defect reports showing product name, department, description, timestamp, and thumbnail of photo if present, with ability to filter by department",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All defect reports are displayed in a list or table format",
+        "Each report shows product name, department, description, and timestamp",
+        "Photos are displayed as clickable thumbnails",
+        "Department filter updates the displayed list",
+        "Reports are sorted by timestamp (newest first)"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Handle photo uploads by storing image data as static assets in frontend/public/assets/uploads and referencing the filename in the defect report record",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "slika če opazi napako"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Uploaded photos are stored as static assets",
+        "Defect report records reference the photo filename",
+        "Photos can be retrieved and displayed in the UI",
+        "System handles reports without photos gracefully"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Design a clean, professional visual theme for a manufacturing environment with a cohesive color palette (avoiding blue and purple), clear typography for readability in factory settings, and intuitive layout emphasizing quick report submission and easy defect tracking",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "UI uses a consistent color scheme appropriate for manufacturing context",
+        "Typography is legible and professional",
+        "Layout prioritizes ease of use for quick defect reporting",
+        "Design is cohesive across all pages and components"
+      ]
+    }
+  ],
+  "constraints": [
+    "Photo uploads must be handled as static assets in frontend/public/assets/uploads, not routed through backend",
+    "Department names must be fixed to the five provided: cutting, machining, assembly, painting, embossing"
+  ],
+  "nonGoals": [
+    "User authentication or role-based access control",
+    "Real-time notifications of new defect reports",
+    "Analytics or reporting dashboards",
+    "Multi-language support beyond English UI",
+    "Integration with external manufacturing systems"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Factory Defect Tracker - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-3",
+      "summary": "Create defect report submission form with product name, department dropdown, description, and optional photo upload",
+      "acceptanceCriteria": [
+        "Form includes product name input field",
+        "Dropdown lists all five departments",
+        "Text area accepts defect description",
+        "Photo upload field is present and optional",
+        "Form validates required fields before submission",
+        "Successful submission clears the form"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DefectReportForm.tsx",
+          "operation": "create",
+          "description": "Create form component for submitting defect reports. Include fields for product name (text input), department (dropdown with options: cutting, machining, assembly, painting, embossing), defect description (textarea), employee ID (text input), and optional photo upload (file input accepting images). Use the blob-storage component to handle photo uploads via ExternalBlob.fromBytes() and withUploadProgress() for upload tracking. Implement form validation to ensure product name, department, description, and employee ID are required. Call backend.createDefectReport() with NewDefectReport structure. Clear form on successful submission. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SubmitDefectPage.tsx",
+          "operation": "create",
+          "description": "Create page component that renders the DefectReportForm component. Include page heading and instructions for employees to report defects. Provide feedback messages for successful submission or errors."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for the defect submission page at /submit using SubmitDefectPage component. Wire the route into the existing router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Display filterable list of all defect reports with product, department, description, timestamp, and photo thumbnails",
+      "acceptanceCriteria": [
+        "All defect reports are displayed in a list or table format",
+        "Each report shows product name, department, description, and timestamp",
+        "Photos are displayed as clickable thumbnails",
+        "Department filter updates the displayed list",
+        "Reports are sorted by timestamp (newest first)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DefectReportList.tsx",
+          "operation": "create",
+          "description": "Create list component to display defect reports. Fetch reports using backend.getAllReports() on mount. Display each DefectReportView in a table or card layout showing id, product name, department, description, formatted timestamp, and employee ID. For photos, use ExternalBlob.getDirectURL() to display thumbnails that open full images on click. Sort reports by timestamp descending (newest first). Include a department filter dropdown (all departments plus 'All') that calls backend.getReportsByDepartment() when a specific department is selected. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ViewDefectsPage.tsx",
+          "operation": "create",
+          "description": "Create page component that renders the DefectReportList component. Include page heading and any necessary layout or container elements."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for the defect list page at /reports using ViewDefectsPage component. Wire the route into the existing router configuration. Add navigation links in the app layout or header to access both /submit and /reports pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Handle photo uploads using blob-storage component for defect reports",
+      "acceptanceCriteria": [
+        "Uploaded photos are stored as static assets",
+        "Defect report records reference the photo filename",
+        "Photos can be retrieved and displayed in the UI",
+        "System handles reports without photos gracefully"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DefectReportForm.tsx",
+          "operation": "modify",
+          "description": "Ensure photo upload handling uses the blob-storage component's ExternalBlob class. When a user selects a photo file, convert it to Uint8Array using FileReader, then create an ExternalBlob using ExternalBlob.fromBytes(). Attach upload progress tracking using withUploadProgress() to show upload percentage. Include the ExternalBlob in the NewDefectReport structure when calling backend.createDefectReport(). Handle cases where no photo is uploaded by omitting the photo field. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/DefectReportList.tsx",
+          "operation": "modify",
+          "description": "Ensure photo display uses ExternalBlob.getDirectURL() to retrieve and render photo thumbnails. Handle reports without photos gracefully by showing a placeholder or 'No photo' indicator. Make thumbnails clickable to view full-size images in a modal or new view. Verify the blob-storage component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Design clean, professional visual theme for manufacturing environment with cohesive color palette (no blue/purple), clear typography, and intuitive layout",
+      "acceptanceCriteria": [
+        "UI uses a consistent color scheme appropriate for manufacturing context",
+        "Typography is legible and professional",
+        "Layout prioritizes ease of use for quick defect reporting",
+        "Design is cohesive across all pages and components"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS variables and base styles for the manufacturing theme. Use a professional color palette avoiding blue and purple—consider earth tones, grays, greens, or warm neutrals suitable for factory contexts. Set clear, legible typography with appropriate font sizes and weights for readability in various lighting conditions. Ensure consistent spacing, borders, and shadows across the application."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration to include custom color palette for manufacturing theme (avoiding blue and purple). Define color tokens for primary, secondary, accent, background, text, and status colors (success, warning, error). Configure typography scale and font families for professional, legible text. Ensure the theme supports the cohesive design across all components."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout component providing consistent page structure with header, navigation, and content area. Include application title 'Factory Defect Tracker' in the header. Add navigation links to /submit and /reports pages. Apply theme colors and typography consistently. Ensure the layout is clean, professional, and prioritizes ease of use."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with the Layout component to ensure consistent theme and navigation across all pages."
+        }
+      ]
+    }
+  ]
+}
